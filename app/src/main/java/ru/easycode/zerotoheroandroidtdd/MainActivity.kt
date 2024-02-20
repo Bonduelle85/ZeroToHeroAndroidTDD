@@ -11,7 +11,7 @@ import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var state: State
+    private var state: State = State.Initial
     private lateinit var textView: TextView
     private lateinit var button: Button
     private lateinit var rootLayout: LinearLayout
