@@ -6,11 +6,10 @@ interface Repository {
 
     suspend fun load()
 
-    class Base() : Repository{
+    class RepositoryImpl() : Repository{
 
-        override suspend fun load() {
+        override suspend fun load(){
             delay(3000)
         }
-
     }
 }

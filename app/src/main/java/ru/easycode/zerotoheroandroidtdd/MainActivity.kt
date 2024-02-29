@@ -5,32 +5,31 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import ru.easycode.zerotoheroandroidtdd.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var progressBar: ProgressBar
-    private lateinit var titleTextView: TextView
-    private lateinit var actionButton: Button
-
-    private val mainViewModel = MainViewModel(
-        LiveDataWrapper.Base(),
-        Repository.Base()
+    private lateinit var binding: ActivityMainBinding
+    private val viewModel = MainViewModel(
+        LiveDataWrapper.LiveDataImpl(),
+        Repository.RepositoryImpl()
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        progressBar = findViewById(R.id.progressBar)
-        titleTextView = findViewById(R.id.titleTextView)
-        actionButton = findViewById(R.id.actionButton)
-
-        actionButton.setOnClickListener {
-            mainViewModel.load()
+        binding.actionButton.setOnClickListener {
+            viewModel.load()
         }
 
-        mainViewModel.liveData().observe(this) {uiState ->
-            uiState.apply(progressBar, titleTextView, actionButton)
+        viewModel.liveData().observe(this) {uiState ->
+            uiState.updateState(
+                binding.progressBar,
+                binding.actionButton,
+                binding.titleTextView
+            )
         }
     }
 }

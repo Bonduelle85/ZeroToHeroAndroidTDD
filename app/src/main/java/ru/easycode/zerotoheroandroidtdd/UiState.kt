@@ -7,21 +7,23 @@ import android.widget.TextView
 
 interface UiState {
 
-    fun apply(progressBar: ProgressBar, textView: TextView, button: Button)
+    fun updateState(progressBar: ProgressBar, button: Button, textView: TextView)
 
-    object ShowProgress : UiState {
-        override fun apply(progressBar: ProgressBar, textView: TextView, button: Button) {
+    object ShowProgress : UiState{
+
+        override fun updateState(progressBar: ProgressBar, button: Button, textView: TextView) {
             progressBar.visibility = View.VISIBLE
             button.isEnabled = false
         }
 
     }
+    object ShowData : UiState{
 
-    object ShowData : UiState {
-        override fun apply(progressBar: ProgressBar, textView: TextView, button: Button) {
+        override fun updateState(progressBar: ProgressBar, button: Button, textView: TextView) {
             progressBar.visibility = View.GONE
             button.isEnabled = true
             textView.visibility = View.VISIBLE
         }
+
     }
 }
