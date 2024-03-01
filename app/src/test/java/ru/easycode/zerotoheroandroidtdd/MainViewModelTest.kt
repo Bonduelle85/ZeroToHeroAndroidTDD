@@ -73,6 +73,7 @@ private interface FakeBundleWrapper : BundleWrapper.Mutable {
             this.uiState = uiState
         }
 
+
         override fun restore(): UiState = uiState!!
     }
 }
