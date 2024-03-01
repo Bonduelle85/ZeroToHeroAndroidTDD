@@ -35,21 +35,4 @@ class MainViewModel(
         val uiState = bundleWrapper.restore()
         liveDataWrapper.update(uiState)
     }
-
-    companion object {
-
-        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(
-                modelClass: Class<T>
-            ): T {
-
-                return MainViewModel(
-                    LiveDataWrapper.LiveDataWrapperImpl(),
-                    Repository.RepositoryImpl(),
-                ) as T
-            }
-        }
-
-    }
 }
