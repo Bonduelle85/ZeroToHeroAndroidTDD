@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -19,18 +20,18 @@ class MainActivity : AppCompatActivity() {
             viewModel.load()
         }
 
-        viewModel.liveData().observe(this){uiState ->
+        viewModel.liveData().observe(this) {uiState ->
             uiState.updateState(binding.progressBar, binding.actionButton, binding.titleTextView)
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        viewModel.save(BundleWrapper.BundleWrapperImpl(outState))
+        viewModel.save(BundleWrapper.Base(outState))
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        viewModel.restore(BundleWrapper.BundleWrapperImpl(savedInstanceState))
+        viewModel.restore(BundleWrapper.Base(savedInstanceState))
     }
 }
