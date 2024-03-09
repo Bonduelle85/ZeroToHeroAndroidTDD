@@ -14,7 +14,7 @@ class ServiceTest {
     @Test
     fun test() = runBlocking {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.google.com/")
+            .baseUrl("https://www.google.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service: SimpleService = retrofit.create(SimpleService::class.java)
