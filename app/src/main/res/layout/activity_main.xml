@@ -9,22 +9,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <TextView
         android:id="@+id/inputEditText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        android:layout_marginBottom="10dp"/>
 
     <Button
-        android:id="@+id/actionButton"
+        android:id="@+id/colorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/change"/>
+        android:text="color"/>
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <Button
+        android:id="@+id/incrementButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:freezesText="true"
-        android:text="Hello World!" />
+        android:layout_marginTop="10dp"
+        android:text="@string/increment"/>
+
+
 
 </LinearLayout>
