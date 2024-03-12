@@ -42,7 +42,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun addViewToContentLayout(userInputText: String) {
         val textView = TextView(this)
+        textView.setPadding(10, 10, 10, 10)
         textView.text = userInputText
+        textView.textSize = 30F
         binding.contentLayout.addView(textView)
     }
 
