@@ -14,6 +14,7 @@ import ru.easycode.zerotoheroandroidtdd.databinding.FragmentCreateBinding
 class CreateFragment : AbstractFragment<FragmentCreateBinding>() {
 
     lateinit var viewModel: CreateViewModel
+
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() = viewModel.comeback()
     }

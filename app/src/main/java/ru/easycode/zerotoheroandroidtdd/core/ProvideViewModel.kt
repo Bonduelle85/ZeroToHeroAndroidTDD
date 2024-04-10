@@ -17,17 +17,20 @@ interface ProvideViewModel {
 
         private val navigation = Navigation.Base()
         private val sharedLiveData: ListLiveDataWrapper.All = ListLiveDataWrapper.Base()
+
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> viewModel(viewModelClass: Class<T>): T {
             return when (viewModelClass){
                 MainViewModel::class.java -> MainViewModel(navigation)
-                ListViewModel::class.java -> ListViewModel(sharedLiveData ,navigation)
+                ListViewModel::class.java -> ListViewModel(
+                    sharedLiveData,
+                    navigation
+                )
                 CreateViewModel::class.java -> CreateViewModel(
                     sharedLiveData,
                     navigation,
                     clearViewModel
                 )
-
                 else -> throw IllegalStateException("unknown view model class: $viewModelClass")
             } as T
         }

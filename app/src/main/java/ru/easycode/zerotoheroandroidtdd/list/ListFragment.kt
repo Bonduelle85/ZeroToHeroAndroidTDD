@@ -8,6 +8,7 @@ import ru.easycode.zerotoheroandroidtdd.core.AbstractFragment
 import ru.easycode.zerotoheroandroidtdd.core.ProvideViewModel
 import ru.easycode.zerotoheroandroidtdd.databinding.FragmentListBinding
 import ru.easycode.zerotoheroandroidtdd.main.BundleWrapper
+import ru.easycode.zerotoheroandroidtdd.main.MainActivity
 
 class ListFragment : AbstractFragment<FragmentListBinding>() {
 

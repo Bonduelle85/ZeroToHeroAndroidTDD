@@ -3,7 +3,7 @@ package ru.easycode.zerotoheroandroidtdd.list
 import ru.easycode.zerotoheroandroidtdd.core.LiveDataWrapper
 import ru.easycode.zerotoheroandroidtdd.main.BundleWrapper
 
-class ListLiveDataWrapper {
+interface ListLiveDataWrapper {
 
     interface Read : LiveDataWrapper.Read<List<CharSequence>>
     interface Update : LiveDataWrapper.Update<List<CharSequence>>
